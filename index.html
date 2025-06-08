@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text to Speech</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .tts-container {
+      background-image: url('https://ibb.co/dJmZM1vH');
+      background-size: cover;
+      background-position: center;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: Black;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255,255,255,0.8); /* Slight white overlay */
+      color: black;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="tts-container">
+    <h2>Text to Speech</h2>
+    <textarea id="text" placeholder="Type something..."></textarea><br>
+    <button onclick="speakText()">Speak</button>
+  </div>
+
+  <script>
+    function speakText() {
+      const text = document.getElementById("text").value;
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-US";
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
+</body>
+</html>
